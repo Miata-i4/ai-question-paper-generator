@@ -38,7 +38,7 @@ def generate_question_paper(subject, topics, difficulty, question_types, total_m
     search_context = fetch_real_world_context(subject, topics)
 
     # Construct the prompt with strict formatting and math rules
-    prompt = f"""
+    prompt = rf"""
     You are an expert academic professor and examiner. Generate a formal academic question paper based strictly on the following parameters.
     
     --- PARAMETERS ---
@@ -59,7 +59,7 @@ def generate_question_paper(subject, topics, difficulty, question_types, total_m
        - You must use proper LaTeX for all chemical formulas, equations, and math.
        - Enclose inline chemical formulas and symbols in single dollar signs (e.g., `$\text{{Fe}}^{{2+}}$`, `$\text{{H}}_2\text{{O}}$`).
        - Enclose full chemical reactions in double dollar signs so they render correctly on their own line. For example:
-         $$ \text{{K}}_2\text{{Cr}}_2\text{{O}}_7 + 4\text{{H}}_2\text{{SO}}_4 + 3\text{{H}}_2\text{{S}} \\rightarrow \text{{K}}_2\text{{SO}}_4 + \text{{Cr}}_2(\text{{SO}}_4)_3 + 7\text{{H}}_2\text{{O}} + 3\text{{S}} $$
+         $$ \text{{K}}_2\text{{Cr}}_2\text{{O}}_7 + 4\text{{H}}_2\text{{SO}}_4 + 3\text{{H}}_2\text{{S}} \rightarrow \text{{K}}_2\text{{SO}}_4 + \text{{Cr}}_2(\text{{SO}}_4)_3 + 7\text{{H}}_2\text{{O}} + 3\text{{S}} $$
     3. FORMATTING:
        - Header: Course Name, Total Marks: {total_marks}, Time Allowed: 3 Hours
        - General Instructions
@@ -102,7 +102,13 @@ with gr.Blocks() as demo:
             generate_btn = gr.Button("Search Web & Generate Question Paper 🚀", variant="primary")
             
         with gr.Column(scale=1):
-            output_paper = gr.Markdown(label="Generated Question Paper (LaTeX Supported)")
+            output_paper = gr.Markdown(
+                label="Generated Question Paper (LaTeX Supported)", 
+                latex_delimiters=[
+                    {"left": "$$", "right": "$$", "display": True},
+                    {"left": "$", "right": "$", "display": False}
+                ]
+            )
             
     generate_btn.click(
         fn=generate_question_paper,
