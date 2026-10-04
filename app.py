@@ -51,7 +51,7 @@ def generate_question_paper(subject, topics, difficulty, question_types, total_m
         return f"An error occurred during generation: {str(e)}"
 
 # Define the Gradio UI
-with gr.Blocks(theme=gr.themes.Soft()) as demo:
+with gr.Blocks() as demo:
     gr.Markdown("# 📝 AI-Based Academic Question Paper Generator")
     gr.Markdown("Build custom, well-formatted exam papers instantly using Generative AI based on your syllabus topics and constraints.")
     
@@ -76,7 +76,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             generate_btn = gr.Button("Generate Question Paper 🚀", variant="primary")
             
         with gr.Column(scale=1):
-            output_paper = gr.Markdown(label="Generated Question Paper", show_copy_button=True)
+            output_paper = gr.Markdown(label="Generated Question Paper")
             
     generate_btn.click(
         fn=generate_question_paper,
@@ -85,4 +85,4 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(share=False)
+    demo.launch(share=False, theme=gr.themes.Soft())
