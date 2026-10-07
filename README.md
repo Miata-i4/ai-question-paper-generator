@@ -42,4 +42,14 @@ Unlike traditional predictive ML models that require massive historical datasets
    Open the provided local URL (usually `http://127.0.0.1:7860`) in your browser to interact with the generator.
 
 ## Screenshots
-*(Insert screenshots of the working Gradio UI and a sample generated question paper here before submitting to Google Classroom!)*
+<img width="1920" height="4088" alt="image" src="https://github.com/user-attachments/assets/a155dd27-99d3-451a-b306-9967d5fc7428" />
+
+<img width="1920" height="3538" alt="image" src="https://github.com/user-attachments/assets/ff7da52a-54ce-47d3-8db5-3494ad3d2888" />
+
+<img width="1920" height="3973" alt="image" src="https://github.com/user-attachments/assets/59b5dc44-faaa-4832-a620-0692ead20415" />
+
+<img width="1920" height="3285" alt="image" src="https://github.com/user-attachments/assets/8f9f5867-a802-4a9e-95b4-23e9e28a0de9" />
+
+
+
+
